@@ -31,30 +31,14 @@
 
 <section id="welpen"><div class="in two"><div>
 <h2>Welpen &amp; Wurfplanung</h2>
-<div class="status"><b>Aktueller Stand:</b> Aktuell ist kein neuer Wurf geplant.</div>
 <p>Für unsere Würfe gibt es in der Regel Voranmeldungen. Wenn Sie Interesse an einem Welpen aus unserer Zucht haben oder Fragen haben, rufen Sie gern an oder schreiben Sie eine Nachricht.</p>
 <a class="btn" href="#kontakt">Kontakt</a><a class="btn alt" href="https://welpen.vdh.de/hunderassen/rasselexikon/zuechter/tanja-nordhues" target="_blank" rel="noopener">Profil bei VDH-Welpen</a></div>
 <img class="photo" src="img/welpen.jpg" alt="Gelbe und schwarze Labrador-Welpen"></div></section>
 
 <section id="hunde"><div class="in"><h2>Hunde &amp; Würfe</h2>
-<div class="cards">
-<div class="card"><h3>Donna</h3><p>Vet.Ch. Donna Of Paradise Children<br>17.02.1997 – 04.04.2010<br>Tanjas erste Labradorhündin, mit ihr begann die Zucht. Mutter des A-, B-, E- und H-Wurfs.</p></div>
-<div class="card"><h3>Tempo</h3><p>Precious For Eternity New Temptation<br>07.01.2007 – 26.01.2011<br>Eltern: Ch. Cambremer Wellington × Ch. Strongline’s Explorer</p></div>
-<div class="card"><h3>Vally</h3><p>Precious For Eternity X-Travagant<br>geboren 05.03.2010<br>Eltern: Jgd.Ch. Annual’s The Great Pretender × Precious For Eternity Kiss By Kiss</p></div></div>
+<div class="cards" id="hunde-karten"></div>
 <h3 style="margin-top:2em">Frühere Würfe</h3>
-<div class="wrap"><table><tr><th>Wurf</th><th>Rüde</th><th>Hündin</th></tr>
-<tr><td>Z</td><td>Tender (Jgd.Ch. Annual’s The Great Pretender)</td><td>Queeny (Jgd.Ch. Precious For Eternity Party Queen)</td></tr>
-<tr><td>Y</td><td>Quincy (Jgd.Ch. Precious For Eternity Quincy)</td><td>Lory (Ch. Strongline’s Explorer)</td></tr>
-<tr><td>X</td><td>Tender (Jgd.Ch. Annual’s The Great Pretender)</td><td>Kiss (Precious For Eternity Kiss By Kiss)</td></tr>
-<tr><td>W</td><td>Tender (Jgd.Ch. Annual’s The Great Pretender)</td><td>Jingle (Jgd.Ch. Precious For Eternity Jingle Jangle)</td></tr>
-<tr><td>V</td><td>Tender (Jgd.Ch. Annual’s The Great Pretender)</td><td>Blue (Precious For Eternity Over The Blues)</td></tr>
-<tr><td>U</td><td>Charly (Annual’s Name Of The Game)</td><td>Mood (Jgd.Ch. Precious For Eternity In The Mood)</td></tr>
-<tr><td>T</td><td>Bravy (Ch. Tekell’s Precious Brave Heart)</td><td>Daty (Precious For Eternity Blind Date)</td></tr>
-<tr><td>S</td><td>Kuri (Richbourne Kuri)</td><td>Kissy (Precious For Eternity Kiss By Kiss)</td></tr>
-<tr><td>R</td><td>Tobbe (Annual’s Special Boy)</td><td>Jingle (Jgd.Ch. Precious For Eternity Jingle Jangle)</td></tr>
-<tr><td>Q</td><td>Higgins (Ch. Fogel Hlara Higgins)</td><td>Point (Precious For Eternity Crispy Point)</td></tr>
-<tr><td>P</td><td>Ville (Ch. Annual’s Wagamama)</td><td>Joyce (Ch. Fameflair Obsession)</td></tr>
-<tr><td>O</td><td>Hero (Jgd.Ch. Gateway’s From Here To Eternity)</td><td>Mood (Jgd.Ch. Precious For Eternity In The Mood)</td></tr></table></div></div></section>
+<div class="wrap"><table><thead><tr><th>Wurf</th><th>Rüde</th><th>Hündin</th></tr></thead><tbody id="wuerfe-tabelle"></tbody></table></div></div></section>
 
 <section id="galerie"><div class="in"><h2>Galerie</h2>
 <p>Einblicke von Tanjas <a href="https://www.instagram.com/tanjanordhues_pfe/" target="_blank" rel="noopener">Instagram-Seite</a>.</p>
@@ -75,4 +59,10 @@
 <a href="https://www.facebook.com/p/Tanja-Nordhues-100092405541659/" target="_blank" rel="noopener">Facebook</a></p></div></div></section>
 
 <footer>© Tanja Nordhues · Zwinger „Precious For Eternity“ (FCI) · Ennigerloh-Westkirchen · <a href="impressum.html">Impressum</a></footer>
+<script src="data.js"></script>
+<script>
+const e=t=>t.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+document.getElementById("hunde-karten").innerHTML=SITE.hunde.map(h=>`<div class="card"><h3>${e(h.name)}</h3><p>${e(h.titel)}<br>${e(h.daten)}<br>${e(h.text)}</p></div>`).join("");
+document.getElementById("wuerfe-tabelle").innerHTML=SITE.wuerfe.map(w=>`<tr><td>${e(w[0])}</td><td>${e(w[1])}</td><td>${e(w[2])}</td></tr>`).join("");
+</script>
 </body></html>
